@@ -1,0 +1,27 @@
+pysql
+data analytics is field in itself that does not connect to ml
+
+which is fundamental to ml
+
+https://emacs.stackexchange.com/questions/33601/how-to-include-rendered-html-in-org-mode
+
+https://pandoc.org/
+
+https://www.reddit.com/r/emacs/comments/55t4dp/is_there_a_way_to_convert_simple_html_files_to/
+
+
+10/11/2024
+Total Cholesterol 163
+Triglycerides 115
+HDL 55
+VLDL 21
+LDL 87
+Ratio 3.0
+
+5/28/2024
+Total Cholesterol 169
+Triglycerides 86
+HDL 55
+VLDL 16
+LDL 104
+Ratio 3.4

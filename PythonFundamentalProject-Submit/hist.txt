@@ -1,0 +1,4 @@
+cd D:\Dev\AI-ML-Course\PythonFundamentalProject-Submit
+d:
+jupyter nbconvert --execute --to html Learner_Notebook_Full_Code.ipynb
+doskey /history > hist.txt

@@ -1,0 +1,7 @@
+where pandoc
+pandoc -o D:\Dev\AI-ML-Course\PythonFundamentalProject\FoodHubProject.org -f html -t org D:\Dev\AI-ML-Course\PythonFundamentalProject\FoodHubProject.htm
+pandoc -o D:\Dev\AI-ML-Course\PythonFundamentalProject\FoodHubProject.org -f html -t org D:\Dev\AI-ML-Course\PythonFundamentalProject\FoodHubProject.docx
+cd D:\Dev\AI-ML-Course\PythonFundamentalProject-Practice
+d:
+jupyter nbconvert --execute --to html Learner_Notebook_Full_Code.ipynb
+doskey /history > cmd_history.txt
