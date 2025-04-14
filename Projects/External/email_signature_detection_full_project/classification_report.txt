@@ -1,0 +1,9 @@
+              precision    recall  f1-score   support
+
+           O       0.67      0.67      0.67         3
+         EML       0.67      0.67      0.67         6
+         PER       0.67      0.67      0.67         3
+
+    accuracy                           0.67        12
+   macro avg       0.67      0.67      0.67        12
+weighted avg       0.67      0.67      0.67        12
