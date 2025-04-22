@@ -1,0 +1,85 @@
+# We could split the data into training, validation, and test sets, using before and after date, but that would not be a good idea
+# Define the features (X) and target (y)
+X = data.drop(columns=['Label', 'Date', 'News'])  # Drop target and non-numeric columns
+y = data['Label']  # Target variable
+
+# Split the data into training and test sets (80% train, 20% test)
+X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
+# Further split the test set into validation and test sets (50% validation, 50% test from the remaining 20%)
+X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42, stratify=y_temp)
+
+# Print the shapes of the splits
+print(f"Training set: X_train: {X_train.shape}, y_train: {y_train.shape}")
+print(f"Validation set: X_val: {X_val.shape}, y_val: {y_val.shape}")
+print(f"Test set: X_test: {X_test.shape}, y_test: {y_test.shape}")
+
+
+from gensim.models import Word2Vec
+
+# Tokenize the News column into a list of words
+news_sentences = data['News'].apply(lambda x: x.split()).tolist()
+
+# Create an instance of Word2Vec
+word2vec_model = Word2Vec(sentences=news_sentences, vector_size=100, window=5, min_count=1, workers=4, sg=0)
+
+# Display the size of the vocabulary
+print(f"Vocabulary size: {len(word2vec_model.wv.index_to_key)}")
+
+X_train_encoded = pd.DataFrame(sentence_model.encode(X_train['News'].tolist()), columns=[f'Feature_{i}' for i in range(sentence_embedding.shape[0])])
+X_val_encoded = pd.DataFrame(sentence_model.encode(X_val['News'].tolist()), columns=[f'Feature_{i}' for i in range(sentence_embedding.shape[0])])
+X_test_encoded 
+
+
+# Plot the confusion matrix for the validation data
+pred = base_st.predict(X_val_encoded)  # Make predictions using the classifier.
+plot_confusion_matrix(y_val, pred, label_list)
+
+# Compute the model performance for the validation data
+base_val_st = compute_classification_metrics(base_st,X_val_encoded,y_val) 
+print("Validation performance:\n",base_val_st)
+
+CMAKE_ARGS="-DLLAMA_CUBLAS=on -DCUDA_PATH=/usr/local/cuda-12.2 -DCUDAToolkit_ROOT=/usr/local/cuda-12.2 -DCUDAToolkit_INCLUDE_DIR=/usr/local/cuda-12/include -DCUDAToolkit_LIBRARY_DIR=/usr/local/cuda-12.2/lib64" FORCE_CMAKE=1 pip install llama-cpp-python - no-cache-dir
+
+from langchain.llm import LlamaCpp
+
+model = LlamaCpp(model_path, n_gpu_layers = -1, verbose = True)
+
+
+pip install llama-cpp-python --no-cache-dir --force-reinstall --upgrade
+
+ $env:CMAKE_ARGS="-DLLAMA_CUBLAS=on"
+PS C:\Users\Piyush> where nvcc
+PS C:\Users\Piyush> which nvcc
+/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.6/bin/nvcc
+PS C:\Users\Piyush> pip install llama-cpp-python --no-cache-dir --force-reinstall --upgrade
+WARNING: Ignoring invalid distribution ~atplotlib (D:\Dev\Tools\Python\Python312\Lib\site-packages
+
+
+
+----
+### Not needed
+from transformers import pipeline
+
+# Load the sentiment analysis pipeline
+sentiment_analyzer = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+
+# Perform sentiment analysis on the 'News' column
+data['Sentiment'] = data['News'].apply(lambda x: sentiment_analyzer(x)[0]['label'])
+
+# Map sentiment labels to numerical values for easier analysis
+sentiment_mapping = {'POSITIVE': 1, 'NEGATIVE': -1}
+data['Sentiment_Score'] = data['Sentiment'].map(sentiment_mapping)
+
+# Display the first few rows of the dataset with sentiment analysis
+print(data[['News', 'Sentiment', 'Sentiment_Score']].head())
+
+#base_wv = DecisionTreeClassifier(random_state=42)
+#base_wv = GradientBoostingClassifier(random_state=42)
+#base_wv = RandomForestClassifier(random_state=42)
+
+
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\vsdevcmd\ext
+D:\Dev\AI-ML-Project-Data\NLP-Project
+
+D:\Dev\GitHub\AI-ML-Course\Projects\Natural-Language-Processing

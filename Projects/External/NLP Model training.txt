@@ -1,0 +1,40 @@
+Email Signature Detection to extract Name and Email from Signature in email body.
+- We will be using locally downloaded dslim/bert-base-NER model
+- Email body will be in text form.
+
+Task 1 - Create Data set
+1. Create small sample email data set of JSON type as emails can have comma and CSV format will not work.
+2. Data set format should be 2 fields - 1. message_id (numeric indicating message sequence number), 2. content (text as email body)
+3. Sample data should have 1 or 2 emails that has no signature.
+4. Some data will email signature as well as multiple other emails being referenced in body of email
+5. Some data will multiple names in Email body besides one in signature.
+56 Some data will have multiple names in Email body but missing in signature and signature will have just email.
+
+Data Pre-Processing tasks -
+1. Identify emails without signature, for example body does no have @ char that means there is no email, extract them in seperate edge case data as missing signature data and exclude them from main data, list count of such finding.
+2. Identify emails with multiple emails in body, say multiple @ chars far apart in email body, extract them in seperate edge case data as multiple emails data and exclude them from main data, list count of such finding.
+3. Remove all control chars like (\n, \r, \t and others embedded in email body.
+4. Data should be split in to train, validation and test.
+
+NER Model Prepartion and Customization -
+1. Create a custom Entity called EML that can identify valid email address using regex.
+2. Train custom finetuned NER Model to extract PER and EML entities from train data.
+3. Validate using validation dataset.
+4. Run final model on test data.
+5. Collect findings from model run on test data in seperate data set as message_id, name, email
+6. Summarize number of messages for which name or email could not be identified
+
+Generate all of items with details in previous prompt and zip entire data and code with all the details from chat in seperate markdown README.md file
+
+lets use Clean Data, perform 1-6 taskes from "NER Model Prepartion and Customization" part of earlier prompt, put code in ner_model_evaluation.py for download
+
+Lets move on with annotations for PER labels and review model metrics, also show confusion matrix and model performance graph.
+zip everything in zip file, including all of prompt responses.
+
+Types of Splits
+1. train/test and Cross Validation on train set
+2. train/validation/test
+3. train/validation/test cv on train
+
+USPS Tracking
+CH231859435US
