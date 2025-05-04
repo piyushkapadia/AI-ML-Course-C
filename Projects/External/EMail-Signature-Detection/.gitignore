@@ -4,3 +4,6 @@ custom-ner-model
 data
 logs
 models
+cache
+tokenized_dataset
+enron_email_data.json
